@@ -80,6 +80,18 @@ $(document).ready(function() {
         $("#math").css('display', 'none');
         $("#results").css('display', '');
         $("#final_score").html("Score: " + score);
+
+        // post info in database
+        $.ajax({
+          type: "POST",
+          url: "/result",
+          data: {
+            "score": score,
+            // "time_finished": Date.now(),
+          },
+        });
+        // TODO: gather past results and store them?
+        // For now the user has an option to refresh
       } else {
         timer();
       }
