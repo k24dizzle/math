@@ -4,6 +4,10 @@ from flask import (
 
 bp = Blueprint('math', __name__)
 
-@bp.route('/test', methods=['GET'])
-def test():
+@bp.route('/', methods=['GET'])
+def home():
 	return render_template('index.html')
+
+@bp.route('/game', methods=['GET'])
+def game():
+	return render_template('game.html')
