@@ -56,7 +56,7 @@ $(document).ready(function() {
   $("#question").html(firstProblem[0]);
   var answer = firstProblem[1];
   var score = 0;
-  var secondsLeft = 3;
+  var secondsLeft = 120;
 
   $('#answer').on('input', function() { 
       var val = parseInt($(this).val()); // get the current value of the input field.
