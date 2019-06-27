@@ -1,8 +1,4 @@
 $(document).ready(function() {
-  // 2-100 + 2-100
-  var addition_range = [2, 101, 2, 101];
-  // 2-12 * 2-100
-  var mult_range = [2, 13, 2, 101];
 
   function randomInt(lower, higher) {
     return Math.floor(Math.random() * (higher - lower)) + lower;
@@ -18,6 +14,11 @@ $(document).ready(function() {
     var first = 0;
     var second = 0;
     var answer = 0;
+
+    // 2-100 + 2-100
+    var addition_range = [2, 101, 2, 101];
+    // 2-12 * 2-100
+    var mult_range = [2, 13, 2, 101];
 
     switch (q_type) {
       case 0: // addition
@@ -51,12 +52,22 @@ $(document).ready(function() {
     return [operator_str, answer];
   }
 
-  console.log(generateProblem());
-  $("#question").html(generateProblem()[0]);
+  firstProblem = generateProblem();
+  $("#question").html(firstProblem[0]);
+  var answer = firstProblem[1];
+  var score = 0;
 
-  function test() {
-    console.log("test");
-  }
-
-  test();
+  $('#answer').on('input', function() { 
+      var val = parseInt($(this).val()); // get the current value of the input field.
+      console.log(val + " vs. " + answer);
+      if (val === answer) {
+        // question correct
+        score++;
+        $("#score").html("Score: " + score);
+        $('#answer').val('');
+        nextProblem = generateProblem();
+        $("#question").html(nextProblem[0]);
+        answer = nextProblem[1];
+      }
+  });
 });

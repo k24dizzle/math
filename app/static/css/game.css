@@ -12,3 +12,28 @@ html, body {
 	padding-top: 20px;
 	padding-bottom: 20px;
 }
+
+#question {
+	font-size: 30px;
+}
+
+#answer {
+	font-size: 30px;
+}
+
+#top_box {
+	padding: 10px 20px;
+}
+
+#timer {
+	float: left;
+}
+
+#score {
+	float: right;
+	display: block;
+}
+
+#timer, #score {
+	font-size: 20px;
+}
