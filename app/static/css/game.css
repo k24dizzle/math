@@ -1,0 +1,14 @@
+html, body {
+	height: 100%;
+}
+
+#math_box {
+	margin: 0 auto;
+	width: 100%;
+	background-color: #eff0f1;
+	position: relative;
+	top: 30%;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
