@@ -10,12 +10,23 @@
 
 	<body>
 		<div id="top_box">
-			<span id="timer">timer</span>
+			<span id="timer">Seconds Left: 120</span>
 			<span id="score">Score: 0</span>
 		</div>
 		<div id="math_box">
-			<span id="question"></span>
-			<input id="answer">
+			<div id="math">
+				<span id="question"></span>
+				<input id="answer" size="10">
+			</div>
+			<div id="results" style="display:none">
+				<h4 id="final_score"></h4>
+
+				<form action="/game" method="get">
+					<button type="submit" class="btn btn-primary">Try Again</button>
+	      		</form>
+      		</div>
+      	</div>
+      	<div id="results_box">
       	</div>
 	</body>
 </html>

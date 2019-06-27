@@ -56,6 +56,7 @@ $(document).ready(function() {
   $("#question").html(firstProblem[0]);
   var answer = firstProblem[1];
   var score = 0;
+  var secondsLeft = 3;
 
   $('#answer').on('input', function() { 
       var val = parseInt($(this).val()); // get the current value of the input field.
@@ -70,4 +71,20 @@ $(document).ready(function() {
         answer = nextProblem[1];
       }
   });
+
+  function timer() {
+    setTimeout(function() {
+      secondsLeft--;
+      $("#timer").html("Seconds Left: " + secondsLeft);
+      if (secondsLeft === 0) {
+        $("#math").css('display', 'none');
+        $("#results").css('display', '');
+        $("#final_score").html("Score: " + score);
+      } else {
+        timer();
+      }
+    }, 1000);
+  }
+
+  timer();
 });
