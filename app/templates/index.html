@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+	<head>
+		<title>math</title>	
+		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+		<link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+	</head>
+
+	<body>
+		<div id="start_box">
+			<h4 id="instructions">
+				Solve as many basic arithmetic problems as you can in a span of 120 seconds.
+			</h4>
+			<form action="/hello" method="get">
+				<button type="submit" class="btn btn-primary" href="/hello">Start</button>
+	      	</form>
+      	</div>
+	</body>
+</html>
