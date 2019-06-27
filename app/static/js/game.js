@@ -89,7 +89,11 @@ $(document).ready(function() {
             "score": score,
             // "time_finished": Date.now(),
           },
+          success: function(data) {
+            $("#percentile").html("Percentile: " + data + "%")
+          }
         });
+
         // TODO: gather past results and store them?
         // For now the user has an option to refresh
       } else {

@@ -18,6 +18,7 @@ def game():
 def result():
 	score = request.form['score']
 
+
 	db = get_db()
 	if not score:
 		flash(error)
@@ -27,4 +28,16 @@ def result():
 		)
 		db.commit()
 
-	return "chill"
+	total = tuple(db.execute('SELECT COUNT(*) FROM scores').fetchone())[0]
+	beat = tuple(db.execute('SELECT COUNT(*) FROM scores WHERE score <= ?', (score)).fetchone())[0]
+	percentile = (beat * 100.0) / total
+	return "%.1f" % percentile
+
+@bp.route('/results', methods=['GET'])
+def results():
+	rows = []
+	for row in db.execute('SELECT score, COUNT(*) as count FROM scores GROUP BY score ORDER BY score'):
+		print(row.keys())
+		print(tuple(row))
+		rows.append(tuple(row))
+	return rows
