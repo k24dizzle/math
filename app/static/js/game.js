@@ -33,7 +33,7 @@ $(document).ready(function() {
         first = second + answer; // first number should be the biggest number
         break;
       case 2: // multiplication
-        operator = "*";
+        operator = "x";
         first = randomInt(mult_range[0], mult_range[1]);
         second = randomInt(mult_range[2], mult_range[3]);
         answer = first * second;
@@ -47,11 +47,12 @@ $(document).ready(function() {
       default: // wtf
         break;
     }
-    var operator_str = first + " " + operator + " " + second;
+    var operator_str = first + " " + operator + " " + second + " =";
     return [operator_str, answer];
   }
 
   console.log(generateProblem());
+  $("#question").html(generateProblem()[0]);
 
   function test() {
     console.log("test");
