@@ -22,13 +22,17 @@
 			</div>
 			<div id="results" style="display:none">
 				<h4 id="final_score"></h4>
-				<p id="percentile"></p>
+				<button id="stats_btn" type="submit" class="btn btn-success">
+					Show Stats
+				</button>
 				<form action="/" method="get">
 					<button type="submit" class="btn btn-primary">Try Again</button>
 	      		</form>
       		</div>
       	</div>
-
-      	<div id="chart"></div>
+      	<div id="stats" style="display:none">
+			<p id="percentile"></p>
+      		<div id="chart"></div>
+      	</div> 
 	</body>
 </html>

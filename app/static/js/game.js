@@ -62,6 +62,11 @@ $(document).ready(function() {
   var questionTime = Date.now();;
   var questionTimes = [];
 
+  $("#stats_btn").on('click', function() {
+    console.log("stats button clicked");
+    $("#stats").toggle("display");
+  });
+
   $('#answer').on('input', function() { 
       var val = parseInt($(this).val()); // get the current value of the input field.
       console.log(val + " vs. " + answer);
@@ -111,6 +116,7 @@ $(document).ready(function() {
 
         // TODO: gather past results and store them?
         // For now the user has an option to refresh
+        // percentile for each question?!
         drawChart(questionTimes);
       } else {
         timer();
@@ -120,14 +126,12 @@ $(document).ready(function() {
 
   function drawChart(data) {
     // inspired by: https://bl.ocks.org/zanarmstrong/dc73d339a0f921d638ac
-    var margin = {top: 20, right: 20, bottom: 30, left: 20},
+    var margin = {top: 20, right: 20, bottom: 20, left: 20},
         width = 960 - margin.left - margin.right,
         height = 200 - margin.top - margin.bottom;
 
     var svg = d3.select("#chart").append("svg")
         .attr("id", "#timeChart")
-        // .attr("width", width + margin.left + margin.right)
-        // .attr("height", height + margin.top + margin.bottom)
         .attr("preserveAspectRatio", "xMinYMin meet")
         .attr("viewBox", "0 0 960 200")
       .append("g")
@@ -138,15 +142,14 @@ $(document).ready(function() {
 
     var y = d3.scale.linear().range([height, 0]);
 
-    // var data = [ 5, 10, 13, 19, 21, 25, 22, 18, 15, 13, 11, 12, 15, 20, 18, 17, 16, 18, 23, 25 ];
     x.domain(d3.range(data.length));
     y.domain([0, d3.max(data, function(d) { return d.time; })]);
     
     var tip = d3.tip()
       .attr('class', 'd3-tip')
-      .offset([-10, 0])
+      .offset([0, 0])
       .html(function(d) {
-        return d.question[0] + " " + d.question[1] + "<br>" + d.time + "s";
+        return "<p>" + d.question[0] + " " + d.question[1] + "<br>" + d.time + "s </p>";
       })
 
     svg.call(tip);

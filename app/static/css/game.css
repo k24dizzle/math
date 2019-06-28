@@ -45,6 +45,11 @@ html, body {
 	fill: orange;
 }
 
-#chart {
+#stats {
 	padding-top: 50px;
+	padding-left: 10px;
+}
+
+#stats_btn {
+	margin-bottom: 10px;
 }
