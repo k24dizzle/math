@@ -55,7 +55,7 @@ $(document).ready(function() {
   $("#question").html(firstProblem[0]);
   var answer = firstProblem[1];
   var score = 0;
-  var secondsLeft = 40;
+  var secondsLeft = 120;
 
   var hardestQuestion = null; // question that took the most amount of time
   var easiestQuestion = null; // question that took the least amount of time
@@ -63,8 +63,7 @@ $(document).ready(function() {
   var questionTimes = [];
 
   $("#stats_btn").on('click', function() {
-    console.log("stats button clicked");
-    $("#stats").toggle("display");
+    $("#stats").toggle();
   });
 
   $('#answer').on('input', function() { 
@@ -79,7 +78,7 @@ $(document).ready(function() {
 
         var questionDuration = {
           "question": [$("#question").html(), answer],
-          "time": elapsedTime
+          "time": parseFloat(elapsedTime)
         };
         questionTimes.push(questionDuration);
 
