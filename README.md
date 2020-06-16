@@ -7,4 +7,4 @@ inspired by https://arithmetic.zetamac.com/
 `flask init-db`
 - initialize the database
 
-Go Knicks
+Go Lakers
